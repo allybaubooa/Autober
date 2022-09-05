@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log in</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='log-in.css')}}">
+</head>
+<body>
+
+<div class="sidebar"  id="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+    <div class="navigation">
+
+        <div class="logo">
+            Nostaame
+        </div>
+
+        <div>
+            <ul>
+
+            <li class="list active">
+                <a href={{ url_for('index_homepage') }}>
+                    <span class="icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa-solid fa-message"></i></span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa-solid fa-gear"></i></span>
+                    <span class="title">Setting</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <span class="title">Password</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                    <span class="title">Sign out</span>
+                </a>
+            </li>
+        </ul>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="main">
+    <div class="sub-main">
+<!--        <video autoplay muted>-->
+<!--            <source class="video-bg" src="video.mp4" type="video/mp4">-->
+<!--        </video>-->
+
+        <div class="navbar-main">
+            <div class="Logo pad">
+                Nostaame
+            </div>
+            <div class="pad">
+                Home
+            </div>
+            <div class="pad">
+                Join
+            </div>
+        </div>
+
+
+        
+
+        <div class="sign-up">
+            <form>
+                <div class="name-credential">
+                    <div class="container">
+                        <label> First Name </label>
+                    <input type="text">
+                    </div>
+
+                    <div class="container">
+                        <label> Last Name </label>
+                        <input type="text">
+                    </div>
+                </div>
+                <div class="email-credential">
+                    <div class="container m">
+                        <label> Email </label>
+                        <input type="email">
+                    </div>
+                </div>
+                <div class="password-credential">
+                    <div class="container">
+                        <label> Password </label>
+                        <input type="password">
+                    </div>
+
+
+                    <div class="container">
+                        <label> Confirm Password</label>
+                        <input type="password">
+                    </div>
+                </div>
+                <div class="button-credential">
+                    <div class="button">
+                        <a class="a" href="#">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Sign up
+                        </a>
+                    </div>
+                </div>
+
+
+
+            </form>
+            <div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<!--Font Awesome-->
+<script src="https://kit.fontawesome.com/e9a3085f17.js" crossorigin="anonymous"></script>
+
+<script>
+    let list = document.querySelectorAll('.list');
+    function activeLink(){
+        list.forEach((item) =>
+        item.classList.remove('active'));
+        this.classList.add('active');
+    }
+
+    list.forEach((item) =>
+        item.addEventListener('click', activeLink));
+
+     var mini = true;
+
+        function toggleSidebar() {
+            if (mini) {
+                console.log("opening sidebar");
+                document.getElementById("sidebar").style.width = "250px";
+                document.getElementById("main").style.width = "95%";
+                document.getElementById("main").style.marginLeft = "220px";
+                this.mini = false;
+            } else {
+                console.log("closing sidebar");
+                document.getElementById("sidebar").style.width = "85px";
+                document.getElementById("main").style.marginLeft = "10px";
+                document.getElementById("main").style.width = "90%";
+                console.log(document.getElementById("main").style.width)
+                console.log(document.getElementById("main").style.marginLeft)
+                this.mini = true;
+            }
+        }
+</script>
+
+</body>
+</html>

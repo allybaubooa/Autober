@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='base.css')}}">
+
+    <!-- FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+</head>
+<body>
+<div class="sidebar"  id="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+    <div class="navigation">
+
+        <div class="logo">
+            Nostaame
+        </div>
+
+        <div>
+            <ul>
+
+            <li class="list active">
+                <a href={{ url_for('index_homepage') }}>
+                    <span class="icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href={{ url_for('profile_page') }}>
+                    <span class="icon"><i class="fa-solid fa-user"></i></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href={{ url_for('leaderboard_page') }}>
+                    <span class="icon"><i class="fa-solid fa-star"></i></span>
+                    <span class="title">Leaderboard</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa-solid fa-gear"></i></span>
+                    <span class="title">Setting</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href={{ url_for('log_in_page') }}>
+                    <span class="icon"><i class="fa-solid fa-lock"></i></span>
+                    <span class="title">Password</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="#">
+                    <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                    <span class="title">Sign out</span>
+                </a>
+            </li>
+        </ul>
+        </div>
+
+    </div>
+</div>
+
+<div id="main">
+    <div class="sub-main">
+        <div class="Into-main">
+            <div class="intro">
+                <p class="title1">play your game</p>
+                <p class="title2"> Nostalgic Gaming Playlist Of the Year</p>
+                <p class="title3"> Nostaame - get a dwell of our memories</p>
+            </div>
+            <div class="intro-image">
+                <img src="{{url_for('static', filename='game-neon.svg')}}">
+            </div>
+        </div>
+        <div class="games">
+            <div class="game-title">
+                <p>Games by Nostaame</p>
+            </div>
+            <div class="game-list">
+                <div class="game-card" >Upcoming</div>
+                <div class="game-card">Upcoming</div>
+                <div class="game-card">Upcoming</div>
+                <div class="game-card">Upcoming</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<!--Font Awesome-->
+<script src="https://kit.fontawesome.com/e9a3085f17.js" crossorigin="anonymous"></script>
+
+<script>
+    let list = document.querySelectorAll('.list');
+    function activeLink(){
+        list.forEach((item) =>
+        item.classList.remove('active'));
+        this.classList.add('active');
+    }
+
+    list.forEach((item) =>
+        item.addEventListener('click', activeLink));
+
+     var mini = true;
+
+        function toggleSidebar() {
+            if (mini) {
+                console.log("opening sidebar");
+                document.getElementById("sidebar").style.width = "250px";
+                document.getElementById("main").style.width = "95%";
+                document.getElementById("main").style.marginLeft = "220px";
+                this.mini = false;
+            } else {
+                console.log("closing sidebar");
+                document.getElementById("sidebar").style.width = "85px";
+                document.getElementById("main").style.marginLeft = "10px";
+                document.getElementById("main").style.width = "90%";
+                console.log(document.getElementById("main").style.width)
+                console.log(document.getElementById("main").style.marginLeft)
+                this.mini = true;
+            }
+        }
+
+</script>
+
+</body>
+</html>
