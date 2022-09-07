@@ -12,8 +12,7 @@ class Button():
 		self.text_rect = self.text.get_rect(center=(self.x_pos, self.y_pos))
 
 	def update(self, screen):
-		if self.image is not None:
-			screen.blit(self.image, self.rect)
+		screen.blit(self.image, self.rect)
 		screen.blit(self.text, self.text_rect)
 
 	def checkForInput(self, position):

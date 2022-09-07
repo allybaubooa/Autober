@@ -50,7 +50,7 @@ car2 = pygame.image.load('../Autober/app/Items/truck.png')
 car2_loc = car2.get_rect()
 car2_loc.center = left_lane, height * 0.2
 
-# barrier = pygame.image.load('barrier.png')
+# barrier = pygame.image.load('../Autober/app/Items/barrier.png')
 # barrier_loc = barrier.get_rect()
 # barrier_loc.center = right_lane, height * 0.2
 
@@ -77,7 +77,7 @@ def play():
                 car2_loc.center = right_lane, y_coord
             else:
                 car2_loc.center = left_lane, y_coord
-
+        # Car hit
         if car_loc[0] == car2_loc[0] and car2_loc[1] > car_loc[1] - 250:
             print("Lost", "Score :", score)
             final_score = score
@@ -141,19 +141,20 @@ def main_menu():
         main_rect = main_text.get_rect(center=(width / 2, height * 0.2))
 
         play_btn = Button(image=pygame.image.load("../Autober/app/Items/Play Rect.png"),
-                            pos=(width / 2, int(height * 0.4)),
+                          pos=(width / 2, int(height * 0.4)),
                           text_input="PLAY", font=get_font(30), base_color="#d7fcd4", hovering_color="White")
         leaderboard_btn = Button(image=pygame.image.load("../Autober/app/Items/Play Rect.png"),
-                                pos=(width / 2, int(height * 0.6)),
-                          text_input="LEADERBOARD", font=get_font(30), base_color="#d7fcd4", hovering_color="White")
+                                 pos=(width / 2, int(height * 0.6)),
+                                 text_input="LEADERBOARD", font=get_font(30), base_color="#d7fcd4",
+                                 hovering_color="White")
         quit_btn = Button(image=pygame.image.load("../Autober/app/Items/Quit Rect.png"),
-                            pos=(width / 2, height * 0.8),
+                          pos=(width / 2, height * 0.8),
                           text_input="QUIT", font=get_font(30), base_color="#d7fcd4", hovering_color="White")
 
         screen.blit(title_text, title_rect)
         screen.blit(main_text, main_rect)
 
-        for button in [play_btn,leaderboard_btn, quit_btn]:
+        for button in [play_btn, leaderboard_btn, quit_btn]:
             button.changeColor(main_mouse_pos)
             button.update(screen)
 
@@ -167,7 +168,7 @@ def main_menu():
                     play()
                 if leaderboard_btn.checkForInput(main_mouse_pos):
                     btn_pressed.play()
-                    webbrowser.open("http://127.0.0.1:5000/leaderboard.html")
+                    webbrowser.open("http://127.0.0.1:5000/leaderboard")
 
                 if quit_btn.checkForInput(main_mouse_pos):
                     btn_pressed.play()
@@ -221,5 +222,4 @@ def try_again(high_score):
                     main_menu()
         pygame.display.update()
 
-
-main_menu()
+# main_menu()
